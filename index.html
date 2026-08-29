@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORJA DV — Forjando Corretores de Alta Performance | Direcional Vendas</title>
+  <meta name="description" content="Plataforma de treinamento corporativo elegante, rápida e minimalista para corretores imobiliários Direcional Vendas." />
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FORJA DV — Forjando Corretores de Alta Performance" />
+  <meta property="og:description" content="Capacitação oficial, treinamentos em vídeo e biblioteca de materiais estratégicos para o time de vendas Direcional." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&auto=format&fit=crop&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon e Estilos -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23174A9C'/><path d='M8 6h16v4H8zM8 14h12v4H8zM8 22h8v4H8z' fill='%23FFFFFF'/><circle cx='24' cy='24' r='4' fill='%23D6222A'/></svg>" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       Cabeçalho Institucional
+       ======================================================================== -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-group" aria-label="FORJA DV - Página Inicial">
+        <!-- Logo Direcional Vendas / FORJA DV -->
+        <div class="logo-direcional">
+          <div class="logo-symbol" aria-hidden="true">
+            <span>D</span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">
+              FORJA <span class="brand-accent">DV</span>
+            </div>
+            <span class="brand-subtitle-badge">Direcional Vendas</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Navegação Rápida -->
+      <nav class="header-nav" aria-label="Navegação Principal">
+        <a href="#destaque" class="nav-link">Destaque</a>
+        <a href="#treinamentos" class="nav-link">Vídeos</a>
+        <a href="#materiais" class="nav-link">Materiais (PDF)</a>
+        <a href="#treinamentos" class="btn-header-cta" id="btn-header-access">
+          <span>Acessar Aulas</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Conteúdo Principal
+       ======================================================================== -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-content">
+        <div class="hero-badge-container">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>Ambiente Oficial de Capacitação Comercial</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          FORJA <span class="highlight-blue">DV</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Forjando Corretores de Alta Performance
+        </p>
+
+        <p class="hero-description">
+          Acelere seus resultados com metodologias comprovadas de abordagem, qualificação de crédito Caixa, contorno de objeções e fechamento de vendas.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#treinamentos" class="btn-primary" id="btn-hero-start">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Acessar Treinamentos
+          </a>
+          <a href="#materiais" class="btn-secondary" id="btn-hero-materials">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            Biblioteca de PDFs
+          </a>
+        </div>
+
+        <!-- Indicadores Rápidos -->
+        <div class="hero-stats" id="hero-stats-container">
+          <!-- Preenchido dinamicamente pelo script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Destaque da Semana -->
+    <section class="section" id="destaque">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Recomendação da Liderança</span>
+          <h2 class="section-title">Destaque da Semana</h2>
+          <p class="section-desc">Treinamento prioritário para você aplicar nas negociações de hoje.</p>
+        </div>
+
+        <!-- Card Destaque Dinâmico -->
+        <div id="destaque-container">
+          <!-- Preenchido dinamicamente pelo script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Treinamentos em Vídeo -->
+    <section class="section section-alt" id="treinamentos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Capacitação Contínua</span>
+          <h2 class="section-title">Treinamentos em Vídeo</h2>
+          <p class="section-desc">Aulas práticas e objetivas com foco em fechamento, crédito e produto.</p>
+        </div>
+
+        <!-- Barra de Controles: Filtros e Busca -->
+        <div class="controls-bar">
+          <div class="filter-pills" id="video-filters" role="tablist" aria-label="Filtrar vídeos por categoria">
+            <!-- Categorias dinâmicas -->
+          </div>
+
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="video-search-input" 
+              class="search-input" 
+              placeholder="Buscar treinamento..." 
+              aria-label="Buscar treinamentos em vídeo"
+            />
+          </div>
+        </div>
+
+        <!-- Grid de Vídeos -->
+        <div class="videos-grid" id="videos-grid">
+          <!-- Cards de vídeo gerados dinamicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Biblioteca de Materiais (PDFs) -->
+    <section class="section" id="materiais">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Arsenal do Corretor</span>
+          <h2 class="section-title">Biblioteca de Materiais</h2>
+          <p class="section-desc">Manuais de objeções, checklists de crédito e argumentos prontos em PDF.</p>
+        </div>
+
+        <!-- Barra de Controles de Materiais -->
+        <div class="controls-bar">
+          <div class="filter-pills" id="material-filters" role="tablist" aria-label="Filtrar materiais por categoria">
+            <!-- Categorias dinâmicas -->
+          </div>
+
+          <div class="search-box">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="material-search-input" 
+              class="search-input" 
+              placeholder="Buscar material PDF..." 
+              aria-label="Buscar materiais em PDF"
+            />
+          </div>
+        </div>
+
+        <!-- Grid de Materiais -->
+        <div class="materials-grid" id="materials-grid">
+          <!-- Cards de PDF gerados dinamicamente -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       Rodapé Institucional
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-direcional">
+            <div class="logo-symbol" aria-hidden="true">
+              <span>D</span>
+            </div>
+            <div class="brand-text">
+              <div class="brand-title">
+                FORJA <span class="brand-accent">DV</span>
+              </div>
+              <span class="brand-subtitle-badge">Direcional Vendas</span>
+            </div>
+          </div>
+          <p class="footer-tagline">
+            Forjando Corretores de Alta Performance. Treinamento contínuo e excelência comercial.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://www.direcional.com.br" target="_blank" rel="noopener noreferrer" class="footer-link">Portal Direcional</a>
+          <a href="#hero" class="footer-link">Início</a>
+          <a href="#destaque" class="footer-link">Destaque</a>
+          <a href="#treinamentos" class="footer-link">Vídeos</a>
+          <a href="#materiais" class="footer-link">Materiais</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-credits">
+          &copy; <span id="current-year">2026</span> <strong>Direcional Vendas</strong> • FORJA DV. Todos os direitos reservados.
+        </div>
+        <div>
+          Plataforma desenvolvida para alta performance e hospedagem no GitHub Pages.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Modal do Player de Vídeo (YouTube Embed Seguro)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="modal-video-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-category" id="modal-video-category">FORJA DV</span>
+          <h3 class="modal-title" id="modal-video-title">Título do Treinamento</h3>
+        </div>
+        <button class="btn-close-modal" onclick="closeVideoModal()" aria-label="Fechar player de vídeo" id="btn-close-video">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="modal-video-wrapper">
+        <iframe 
+          id="modal-video-iframe" 
+          src="" 
+          title="Player de Treinamento YouTube" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-description" id="modal-video-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

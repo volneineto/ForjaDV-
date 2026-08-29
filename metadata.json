@@ -1,0 +1,6 @@
+{
+  "name": "FORJA DV - Plataforma de Treinamento",
+  "description": "Plataforma de treinamento corporativo elegante, minimalista e rápida para corretores imobiliários Direcional Vendas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
