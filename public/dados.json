@@ -2,167 +2,45 @@
   "config": {
     "nomePlataforma": "FORJA DV",
     "subtitulo": "Forjando Corretores de Alta Performance",
-    "empresa": "Direcional Vendas",
-    "descricao": "Ambiente oficial de capacitação contínua, técnicas de fechamento e materiais estratégicos para o time comercial da Direcional.",
-    "links": {
-      "portalDirecional": "https://www.direcional.com.br",
-      "suporteComercial": "https://api.whatsapp.com/send?text=Olá,%20preciso%20de%20suporte%20no%20FORJA%20DV"
-    }
+    "empresa": "Direcional Vendas"
   },
-  "destaqueSemana": {
-    "id": "destaque-01",
-    "badge": "Destaque da Semana",
-    "categoria": "Técnicas de Fechamento",
-    "titulo": "Masterclass: Como Converter Leads Frios em Vendas em Menos de 7 Dias",
-    "subtitulo": "Estratégias comprovadas para contornar objeções de entrada e acelerar aprovação de crédito.",
-    "descricao": "Aprenda o passo a passo prático utilizado pelos top 1% corretores da Direcional para qualificar clientes no primeiro contato, criar senso de urgência legítimo e conduzir a negociação até a assinatura da proposta.",
-    "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "duracao": "28 min",
-    "instrutor": "Coordenação de Performance DV",
-    "topicos": [
-      "Qualificação em 3 perguntas-chave no WhatsApp",
-      "Como apresentar o fluxo de pagamento sem assustar o cliente",
-      "Gatilhos mentais de escassez e tabela de lançamento",
-      "Fechamento assistido com simulação Caixa na hora"
-    ],
-    "materialComplementar": "Guia de Contorno de Objeções (PDF)"
-  },
-  "categorias": [
-    "Todos",
-    "Técnicas de Vendas",
-    "Crédito & Financiamento",
-    "Lançamentos Direcional",
-    "Atendimento & CRM",
-    "Mindset & Alta Performance"
-  ],
   "videos": [
     {
       "id": "vid-01",
-      "titulo": "Scripts de Alta Conversão para Abordagem no WhatsApp",
-      "descricao": "Modelos prontos de mensagens para reativar leads antigos e responder novos contatos com taxa de resposta superior a 70%.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4",
-      "duracao": "14 min",
-      "categoria": "Técnicas de Vendas",
-      "nivel": "Iniciante / Intermediário",
-      "data": "Atualizado"
+      "titulo": "Resumo do best seller Prospecção Fanática",
+      "descricao": "Estratégias essenciais de prospecção e abordagem de alta conversão.",
+      "youtubeUrl": "https://youtu.be/-GFRTaa2t3M?si=9eVnZP6T-R5JMQ8-",
+      "categoria": "Alta Performance"
     },
     {
       "id": "vid-02",
-      "titulo": "Dominando a Análise de Crédito Caixa & Minha Casa Minha Vida",
-      "descricao": "Entenda todas as regras de composição de renda, subsídios, FGTS e como evitar reprovações no correspondente bancário.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-      "duracao": "22 min",
-      "categoria": "Crédito & Financiamento",
-      "nivel": "Essencial",
-      "data": "Atualizado"
-    },
-    {
-      "id": "vid-03",
-      "titulo": "Apresentação de Produto de Alto Impacto no Stand de Vendas",
-      "descricao": "Como conduzir o tour pelo apartamento decorado, destacar os diferenciais construtivos da Direcional e encantar a família.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=9bZkp7q19f0",
-      "duracao": "18 min",
-      "categoria": "Lançamentos Direcional",
-      "nivel": "Prático",
-      "data": "Atualizado"
-    },
-    {
-      "id": "vid-04",
-      "titulo": "Gestão de Funil e Follow-Up Implacável no CRM",
-      "descricao": "Organize suas tarefas diárias, configure lembretes automáticos e nunca mais perca uma comissão por esquecer um lead.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-      "duracao": "16 min",
-      "categoria": "Atendimento & CRM",
-      "nivel": "Intermediário",
-      "data": "Atualizado"
-    },
-    {
-      "id": "vid-05",
-      "titulo": "Como Criar Anúncios e Conteúdo no Instagram que Geram Compradores",
-      "descricao": "Táticas de posicionamento digital e captação orgânica para corretores autônomos e de imobiliárias parceiras.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
-      "duracao": "25 min",
-      "categoria": "Técnicas de Vendas",
-      "nivel": "Avançado",
-      "data": "Atualizado"
-    },
-    {
-      "id": "vid-06",
-      "titulo": "Psicologia do Comprador do Primeiro Imóvel",
-      "descricao": "Como mapear os medos, dores e aspirações do comprador de primeira viagem e se posicionar como um consultor de confiança.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=L_LUpnjgPso",
-      "duracao": "19 min",
-      "categoria": "Mindset & Alta Performance",
-      "nivel": "Essencial",
-      "data": "Atualizado"
+      "titulo": "Simulador Pro Soluto Direcional",
+      "descricao": "Aprenda a utilizar o simulador e montar fluxos de pagamento eficientes.",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Rr_jJeXCKsQ",
+      "categoria": "Ferramentas DV"
     }
   ],
   "materiais": [
     {
       "id": "mat-01",
-      "titulo": "Manual de Objeções Direcional Vendas (Edição 2026)",
-      "descricao": "Guia prático com mais de 30 respostas prontas para 'Está caro', 'Vou pensar', 'Entrada muito alta' e 'Vou falar com meu cônjuge'.",
+      "titulo": "Manual de Objeções Direcional Vendas",
+      "descricao": "Respostas práticas e argumentos de fechamento para as principais objeções de clientes.",
       "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      "categoria": "Técnicas de Vendas",
-      "formato": "PDF",
-      "paginas": "24 páginas",
-      "tamanho": "2.4 MB",
-      "destaque": true
+      "categoria": "Técnicas de Vendas"
     },
     {
       "id": "mat-02",
-      "titulo": "Checklist de Documentação para Aprovação de Crédito Caixa",
-      "descricao": "Folha de conferência rápida para solicitar ao cliente todos os documentos necessários sem retrabalho na análise.",
+      "titulo": "Checklist de Documentação Crédito Caixa",
+      "descricao": "Guia de conferência de documentos para agilizar aprovação no correspondente.",
       "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      "categoria": "Crédito & Financiamento",
-      "formato": "PDF",
-      "paginas": "4 páginas",
-      "tamanho": "850 KB",
-      "destaque": false
+      "categoria": "Financiamento"
     },
     {
       "id": "mat-03",
-      "titulo": "Roteiro de Ligação e Script para Reativação de Base de Leads",
-      "descricao": "Estrutura testada de abordagem telefônica em 4 blocos para despertar interesse imediato e agendar visitas no stand.",
+      "titulo": "Tabela de Benefícios e Diferenciais Direcional",
+      "descricao": "Material comparativo com atributos construtivos e vantagens competitivas.",
       "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      "categoria": "Técnicas de Vendas",
-      "formato": "PDF",
-      "paginas": "8 páginas",
-      "tamanho": "1.1 MB",
-      "destaque": false
-    },
-    {
-      "id": "mat-04",
-      "titulo": "Tabela Comparativa de Benefícios & Argumentário de Vendas",
-      "descricao": "Resumo visual comparando o padrão construtivo e garantias Direcional frente à concorrência do mercado imobiliário.",
-      "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      "categoria": "Lançamentos Direcional",
-      "formato": "PDF",
-      "paginas": "12 páginas",
-      "tamanho": "3.6 MB",
-      "destaque": true
-    },
-    {
-      "id": "mat-05",
-      "titulo": "Calculadora e Simulador Rápido de Fluxo de Pagamento",
-      "descricao": "Guia de bolso para montar propostas balanceadas respeitando a capacidade financeira do cliente e a política da construtora.",
-      "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      "categoria": "Crédito & Financiamento",
-      "formato": "PDF",
-      "paginas": "6 páginas",
-      "tamanho": "1.3 MB",
-      "destaque": false
-    },
-    {
-      "id": "mat-06",
-      "titulo": "Guia de Boas Práticas e Postura Profissional no Stand",
-      "descricao": "Diretrizes de atendimento, pontualidade, vestimenta e conduta ética para corretores de alta performance.",
-      "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      "categoria": "Mindset & Alta Performance",
-      "formato": "PDF",
-      "paginas": "10 páginas",
-      "tamanho": "1.8 MB",
-      "destaque": false
+      "categoria": "Lançamentos"
     }
   ]
 }

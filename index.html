@@ -4,14 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FORJA DV — Forjando Corretores de Alta Performance | Direcional Vendas</title>
-  <meta name="description" content="Plataforma de treinamento corporativo elegante, rápida e minimalista para corretores imobiliários Direcional Vendas." />
+  <meta name="description" content="Plataforma de treinamento corporativo minimalista e elegante para corretores Direcional Vendas." />
   
-  <!-- Open Graph / Redes Sociais -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="FORJA DV — Forjando Corretores de Alta Performance" />
-  <meta property="og:description" content="Capacitação oficial, treinamentos em vídeo e biblioteca de materiais estratégicos para o time de vendas Direcional." />
+  <meta property="og:title" content="FORJA DV — Direcional Vendas" />
+  <meta property="og:description" content="Treinamentos em vídeo e biblioteca de materiais para corretores de alta performance." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&auto=format&fit=crop&q=80" />
-  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon e Estilos -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23174A9C'/><path d='M8 6h16v4H8zM8 14h12v4H8zM8 22h8v4H8z' fill='%23FFFFFF'/><circle cx='24' cy='24' r='4' fill='%23D6222A'/></svg>" type="image/svg+xml" />
@@ -20,36 +19,39 @@
 <body>
 
   <!-- ========================================================================
-       Cabeçalho Institucional
+       Cabeçalho Minimalista
        ======================================================================== -->
   <header class="header">
     <div class="container header-container">
-      <a href="#hero" class="brand-group" aria-label="FORJA DV - Página Inicial">
-        <!-- Logo Direcional Vendas / FORJA DV -->
-        <div class="logo-direcional">
-          <div class="logo-symbol" aria-hidden="true">
-            <span>D</span>
+      <a href="#hero" class="brand-group" aria-label="FORJA DV - Início">
+        <div class="logo-symbol" aria-hidden="true">
+          <span>D</span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">
+            FORJA <span class="brand-accent">DV</span>
           </div>
-          <div class="brand-text">
-            <div class="brand-title">
-              FORJA <span class="brand-accent">DV</span>
-            </div>
-            <span class="brand-subtitle-badge">Direcional Vendas</span>
-          </div>
+          <span class="brand-sub">Direcional Vendas</span>
         </div>
       </a>
 
-      <!-- Navegação Rápida -->
-      <nav class="header-nav" aria-label="Navegação Principal">
-        <a href="#destaque" class="nav-link">Destaque</a>
-        <a href="#treinamentos" class="nav-link">Vídeos</a>
-        <a href="#materiais" class="nav-link">Materiais (PDF)</a>
-        <a href="#treinamentos" class="btn-header-cta" id="btn-header-access">
-          <span>Acessar Aulas</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
+      <nav class="header-nav" aria-label="Navegação">
+        <a href="#videos-section" class="nav-link">Vídeos</a>
+        <a href="#pdf-section" class="nav-link">PDFs</a>
+        <button class="btn-manage-videos" onclick="openAddVideoModal()" title="Adicionar Vídeo do YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
           </svg>
-        </a>
+          <span>Incluir Vídeo</span>
+        </button>
+        <button class="btn-manage-pdf" onclick="openAddPdfModal()" title="Adicionar Documento PDF">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Incluir PDF</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -59,197 +61,121 @@
        ======================================================================== -->
   <main>
     
-    <!-- Hero Section -->
+    <!-- Hero Ultra-Clean -->
     <section class="hero-section" id="hero">
       <div class="container hero-content">
-        <div class="hero-badge-container">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            <span>Ambiente Oficial de Capacitação Comercial</span>
-          </div>
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Treinamento Direcional Vendas
         </div>
-
         <h1 class="hero-title">
           FORJA <span class="highlight-blue">DV</span>
         </h1>
-        
         <p class="hero-subtitle">
           Forjando Corretores de Alta Performance
         </p>
-
-        <p class="hero-description">
-          Acelere seus resultados com metodologias comprovadas de abordagem, qualificação de crédito Caixa, contorno de objeções e fechamento de vendas.
+        <p class="hero-desc">
+          Ambiente corporativo de capacitação prática, simuladores e materiais táticos de fechamento.
         </p>
-
-        <div class="hero-actions">
-          <a href="#treinamentos" class="btn-primary" id="btn-hero-start">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            Acessar Treinamentos
-          </a>
-          <a href="#materiais" class="btn-secondary" id="btn-hero-materials">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-            </svg>
-            Biblioteca de PDFs
-          </a>
-        </div>
-
-        <!-- Indicadores Rápidos -->
-        <div class="hero-stats" id="hero-stats-container">
-          <!-- Preenchido dinamicamente pelo script.js -->
-        </div>
       </div>
     </section>
 
-    <!-- Destaque da Semana -->
-    <section class="section" id="destaque">
+    <!-- DOBRA 1: Treinamentos em Vídeo (Carrossel Estilo Netflix) -->
+    <section class="section section-videos" id="videos-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">Recomendação da Liderança</span>
-          <h2 class="section-title">Destaque da Semana</h2>
-          <p class="section-desc">Treinamento prioritário para você aplicar nas negociações de hoje.</p>
+        
+        <div class="section-head-carousel">
+          <div>
+            <span class="section-kicker">Dobra 1 • Capacitação</span>
+            <h2 class="section-title">Treinamentos em Vídeo</h2>
+          </div>
+
+          <!-- Controles de Navegação do Carrossel -->
+          <div class="carousel-nav-controls">
+            <button class="carousel-arrow" id="carousel-prev" onclick="scrollCarousel(-1)" aria-label="Vídeo anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="carousel-arrow" id="carousel-next" onclick="scrollCarousel(1)" aria-label="Próximo vídeo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <!-- Card Destaque Dinâmico -->
-        <div id="destaque-container">
-          <!-- Preenchido dinamicamente pelo script.js -->
+        <!-- Trilha do Carrossel -->
+        <div class="carousel-track-wrapper">
+          <div class="carousel-track" id="carousel-videos-track">
+            <!-- Cards de vídeo gerados dinamicamente via script.js -->
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Treinamentos em Vídeo -->
-    <section class="section section-alt" id="treinamentos">
+    <!-- DOBRA 2: Biblioteca de Materiais (PDFs) -->
+    <section class="section section-pdf" id="pdf-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">Capacitação Contínua</span>
-          <h2 class="section-title">Treinamentos em Vídeo</h2>
-          <p class="section-desc">Aulas práticas e objetivas com foco em fechamento, crédito e produto.</p>
-        </div>
-
-        <!-- Barra de Controles: Filtros e Busca -->
-        <div class="controls-bar">
-          <div class="filter-pills" id="video-filters" role="tablist" aria-label="Filtrar vídeos por categoria">
-            <!-- Categorias dinâmicas -->
+        
+        <div class="section-header section-header-split">
+          <div>
+            <span class="section-kicker">Dobra 2 • Material de Apoio</span>
+            <h2 class="section-title">Biblioteca de Materiais em PDF</h2>
+            <p class="section-desc">Manuais de objeções, simuladores e roteiros prontos para o dia a dia.</p>
           </div>
-
-          <div class="search-box">
-            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <button class="btn-manage-pdf" onclick="openAddPdfModal()" title="Adicionar Documento PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-            <input 
-              type="text" 
-              id="video-search-input" 
-              class="search-input" 
-              placeholder="Buscar treinamento..." 
-              aria-label="Buscar treinamentos em vídeo"
-            />
-          </div>
+            <span>Incluir PDF</span>
+          </button>
         </div>
 
-        <!-- Grid de Vídeos -->
-        <div class="videos-grid" id="videos-grid">
-          <!-- Cards de vídeo gerados dinamicamente -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Biblioteca de Materiais (PDFs) -->
-    <section class="section" id="materiais">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-kicker">Arsenal do Corretor</span>
-          <h2 class="section-title">Biblioteca de Materiais</h2>
-          <p class="section-desc">Manuais de objeções, checklists de crédito e argumentos prontos em PDF.</p>
+        <!-- Grid de Cards PDF -->
+        <div class="pdf-grid" id="pdf-grid">
+          <!-- Cards de PDF gerados dinamicamente via script.js -->
         </div>
 
-        <!-- Barra de Controles de Materiais -->
-        <div class="controls-bar">
-          <div class="filter-pills" id="material-filters" role="tablist" aria-label="Filtrar materiais por categoria">
-            <!-- Categorias dinâmicas -->
-          </div>
-
-          <div class="search-box">
-            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input 
-              type="text" 
-              id="material-search-input" 
-              class="search-input" 
-              placeholder="Buscar material PDF..." 
-              aria-label="Buscar materiais em PDF"
-            />
-          </div>
-        </div>
-
-        <!-- Grid de Materiais -->
-        <div class="materials-grid" id="materials-grid">
-          <!-- Cards de PDF gerados dinamicamente -->
-        </div>
       </div>
     </section>
 
   </main>
 
   <!-- ========================================================================
-       Rodapé Institucional
+       Rodapé Minimalista
        ======================================================================== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="logo-direcional">
-            <div class="logo-symbol" aria-hidden="true">
-              <span>D</span>
-            </div>
-            <div class="brand-text">
-              <div class="brand-title">
-                FORJA <span class="brand-accent">DV</span>
-              </div>
-              <span class="brand-subtitle-badge">Direcional Vendas</span>
-            </div>
-          </div>
-          <p class="footer-tagline">
-            Forjando Corretores de Alta Performance. Treinamento contínuo e excelência comercial.
-          </p>
-        </div>
-
-        <div class="footer-links">
-          <a href="https://www.direcional.com.br" target="_blank" rel="noopener noreferrer" class="footer-link">Portal Direcional</a>
-          <a href="#hero" class="footer-link">Início</a>
-          <a href="#destaque" class="footer-link">Destaque</a>
-          <a href="#treinamentos" class="footer-link">Vídeos</a>
-          <a href="#materiais" class="footer-link">Materiais</a>
-        </div>
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="footer-logo">FORJA <strong>DV</strong></span>
+        <span class="footer-sep">•</span>
+        <span>Direcional Vendas</span>
       </div>
 
-      <div class="footer-bottom">
-        <div class="footer-credits">
-          &copy; <span id="current-year">2026</span> <strong>Direcional Vendas</strong> • FORJA DV. Todos os direitos reservados.
-        </div>
-        <div>
-          Plataforma desenvolvida para alta performance e hospedagem no GitHub Pages.
-        </div>
+      <div class="footer-right">
+        <button class="footer-link-btn" onclick="openAddVideoModal()">+ Incluir Vídeo</button>
+        <span class="footer-sep">•</span>
+        <button class="footer-link-btn" onclick="openAddPdfModal()">+ Incluir PDF</button>
+        <span class="footer-sep">•</span>
+        <span>&copy; <span id="current-year">2026</span> Todos os direitos reservados</span>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       Modal do Player de Vídeo (YouTube Embed Seguro)
+       Modal Player de Vídeo (YouTube Embed)
        ======================================================================== -->
   <div class="modal-backdrop" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="modal-video-title">
     <div class="modal-container">
       <div class="modal-header">
-        <div class="modal-title-group">
+        <div class="modal-title-wrap">
           <span class="modal-category" id="modal-video-category">FORJA DV</span>
-          <h3 class="modal-title" id="modal-video-title">Título do Treinamento</h3>
+          <h3 class="modal-title" id="modal-video-title">Vídeo</h3>
         </div>
-        <button class="btn-close-modal" onclick="closeVideoModal()" aria-label="Fechar player de vídeo" id="btn-close-video">
+        <button class="btn-close-modal" onclick="closeVideoModal()" aria-label="Fechar vídeo">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -261,19 +187,167 @@
         <iframe 
           id="modal-video-iframe" 
           src="" 
-          title="Player de Treinamento YouTube" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          title="Player do Treinamento" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
         </iframe>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-footer" id="modal-footer-area">
         <p class="modal-description" id="modal-video-desc"></p>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- ========================================================================
+       Modal / Painel para Incluir Links de Vídeos Facilmente
+       ======================================================================== -->
+  <div class="modal-backdrop" id="add-video-modal" role="dialog" aria-modal="true">
+    <div class="modal-container modal-container-sm">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">Painel Administrativo</span>
+          <h3 class="modal-title">Incluir Vídeo do YouTube</h3>
+        </div>
+        <button class="btn-close-modal" onclick="closeAddVideoModal()" aria-label="Fechar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form class="modal-form" onsubmit="handleAddNewVideo(event)">
+        <div class="form-group">
+          <label for="new-video-url" class="form-label">Link do Vídeo do YouTube *</label>
+          <input 
+            type="text" 
+            id="new-video-url" 
+            class="form-input" 
+            placeholder="Ex: https://youtu.be/-GFRTaa2t3M ou https://www.youtube.com/watch?v=..." 
+            required 
+          />
+          <span class="form-hint">Aceita qualquer link normal, curto ou Não Listado (Unlisted).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="new-video-title" class="form-label">Título do Treinamento *</label>
+          <input 
+            type="text" 
+            id="new-video-title" 
+            class="form-input" 
+            placeholder="Ex: Resumo do best seller Prospecção Fanática" 
+            required 
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="new-video-desc" class="form-label">Descrição (Opcional)</label>
+          <input 
+            type="text" 
+            id="new-video-desc" 
+            class="form-input" 
+            placeholder="Ex: Técnicas essenciais para qualificação rápida de clientes." 
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary-form">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Adicionar na Página Agora
+          </button>
+          
+          <button type="button" class="btn-secondary-form" onclick="exportJsonConfig()">
+            Copiar Código para o dados.json
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal / Painel para Incluir Links de PDFs Facilmente
+       ======================================================================== -->
+  <div class="modal-backdrop" id="add-pdf-modal" role="dialog" aria-modal="true">
+    <div class="modal-container modal-container-sm">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">Painel Administrativo</span>
+          <h3 class="modal-title">Incluir Material em PDF</h3>
+        </div>
+        <button class="btn-close-modal" onclick="closeAddPdfModal()" aria-label="Fechar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <form class="modal-form" onsubmit="handleAddNewPdf(event)">
+        <div class="form-group">
+          <label for="new-pdf-url" class="form-label">Link do Arquivo PDF *</label>
+          <input 
+            type="url" 
+            id="new-pdf-url" 
+            class="form-input" 
+            placeholder="Ex: https://seusite.com/manual.pdf ou link do Google Drive / Notion / CDN" 
+            required 
+          />
+          <span class="form-hint">Aceita qualquer link direto de PDF, Google Drive (compartilhado) ou armazenamento web.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="new-pdf-title" class="form-label">Título do Material *</label>
+          <input 
+            type="text" 
+            id="new-pdf-title" 
+            class="form-input" 
+            placeholder="Ex: Guia de Abordagem e Contorno de Objeções" 
+            required 
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="new-pdf-cat" class="form-label">Categoria (Opcional)</label>
+          <input 
+            type="text" 
+            id="new-pdf-cat" 
+            class="form-input" 
+            placeholder="Ex: Técnicas de Vendas, Financiamento, Lançamentos" 
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="new-pdf-desc" class="form-label">Descrição Resumida (Opcional)</label>
+          <input 
+            type="text" 
+            id="new-pdf-desc" 
+            class="form-input" 
+            placeholder="Ex: Roteiro rápido com 15 respostas para as principais dúvidas dos clientes." 
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary-form">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Adicionar PDF na Página Agora
+          </button>
+          
+          <button type="button" class="btn-secondary-form" onclick="exportJsonConfig()">
+            Copiar Código para o dados.json
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script Principal -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,566 +1,515 @@
 /**
- * ============================================================================
- * FORJA DV - Script Principal (JavaScript Puro)
- * Plataforma de Treinamento Direcional Vendas
- * Compatível com GitHub Pages e Navegadores Modernos
- * ============================================================================
+ * FORJA DV — Plataforma Corporativa Direcional Vendas
+ * Arquitetura Minimalista: 2 Dobras Principais (Carrossel de Vídeos + PDFs)
  */
 
-// Estado global da aplicação
-const state = {
-  data: null,
-  activeVideoCategory: "Todos",
-  videoSearchTerm: "",
-  activeMaterialCategory: "Todos",
-  materialSearchTerm: "",
-  currentModalVideo: null
-};
-
-// Dados padrão de segurança (Fallback para quando o arquivo for aberto via file:// sem servidor local)
-const FALLBACK_DATA = {
+let appData = {
   config: {
     nomePlataforma: "FORJA DV",
     subtitulo: "Forjando Corretores de Alta Performance",
-    empresa: "Direcional Vendas",
-    descricao: "Ambiente oficial de capacitação contínua, técnicas de fechamento e materiais estratégicos para o time comercial da Direcional.",
-    links: {
-      portalDirecional: "https://www.direcional.com.br",
-      suporteComercial: "https://api.whatsapp.com"
-    }
+    empresa: "Direcional Vendas"
   },
-  destaqueSemana: {
-    id: "destaque-01",
-    badge: "Destaque da Semana",
-    categoria: "Técnicas de Fechamento",
-    titulo: "Masterclass: Como Converter Leads Frios em Vendas em Menos de 7 Dias",
-    subtitulo: "Estratégias comprovadas para contornar objeções de entrada e acelerar aprovação de crédito.",
-    descricao: "Aprenda o passo a passo prático utilizado pelos top 1% corretores da Direcional para qualificar clientes no primeiro contato, criar senso de urgência legítimo e conduzir a negociação até a assinatura da proposta.",
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    duracao: "28 min",
-    instrutor: "Coordenação de Performance DV",
-    topicos: [
-      "Qualificação em 3 perguntas-chave no WhatsApp",
-      "Como apresentar o fluxo de pagamento sem assustar o cliente",
-      "Gatilhos mentais de escassez e tabela de lançamento",
-      "Fechamento assistido com simulação Caixa na hora"
-    ],
-    materialComplementar: "Guia de Contorno de Objeções (PDF)"
-  },
-  categorias: [
-    "Todos",
-    "Técnicas de Vendas",
-    "Crédito & Financiamento",
-    "Lançamentos Direcional",
-    "Atendimento & CRM",
-    "Mindset & Alta Performance"
-  ],
+  videos: [],
+  materiais: []
+};
+
+// Dados padrão iniciais (caso haja falha de carregamento de arquivo ou primeira inicialização)
+const defaultData = {
   videos: [
     {
       id: "vid-01",
-      titulo: "Scripts de Alta Conversão para Abordagem no WhatsApp",
-      descricao: "Modelos prontos de mensagens para reativar leads antigos e responder novos contatos com taxa de resposta superior a 70%.",
-      youtubeUrl: "https://www.youtube.com/watch?v=ScMzIvxBSi4",
-      duracao: "14 min",
-      categoria: "Técnicas de Vendas",
-      nivel: "Iniciante / Intermediário",
-      data: "Atualizado"
+      titulo: "Resumo do best seller Prospecção Fanática",
+      descricao: "Estratégias essenciais de prospecção e abordagem de alta conversão.",
+      youtubeUrl: "https://youtu.be/-GFRTaa2t3M?si=9eVnZP6T-R5JMQ8-",
+      categoria: "Alta Performance"
     },
     {
       id: "vid-02",
-      titulo: "Dominando a Análise de Crédito Caixa & Minha Casa Minha Vida",
-      descricao: "Entenda todas as regras de composição de renda, subsídios, FGTS e como evitar reprovações no correspondente bancário.",
-      youtubeUrl: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
-      duracao: "22 min",
-      categoria: "Crédito & Financiamento",
-      nivel: "Essencial",
-      data: "Atualizado"
-    },
-    {
-      id: "vid-03",
-      titulo: "Apresentação de Produto de Alto Impacto no Stand de Vendas",
-      descricao: "Como conduzir o tour pelo apartamento decorado, destacar os diferenciais construtivos da Direcional e encantar a família.",
-      youtubeUrl: "https://www.youtube.com/watch?v=9bZkp7q19f0",
-      duracao: "18 min",
-      categoria: "Lançamentos Direcional",
-      nivel: "Prático",
-      data: "Atualizado"
+      titulo: "Simulador Pro Soluto Direcional",
+      descricao: "Aprenda a utilizar o simulador e montar fluxos de pagamento eficientes.",
+      youtubeUrl: "https://www.youtube.com/watch?v=Rr_jJeXCKsQ",
+      categoria: "Ferramentas DV"
     }
   ],
   materiais: [
     {
       id: "mat-01",
-      titulo: "Manual de Objeções Direcional Vendas (Edição 2026)",
-      descricao: "Guia prático com mais de 30 respostas prontas para 'Está caro', 'Vou pensar', 'Entrada muito alta' e 'Vou falar com meu cônjuge'.",
+      titulo: "Manual de Objeções Direcional Vendas",
+      descricao: "Respostas práticas e argumentos de fechamento para as principais objeções de clientes.",
       pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      categoria: "Técnicas de Vendas",
-      formato: "PDF",
-      paginas: "24 páginas",
-      tamanho: "2.4 MB",
-      destaque: true
+      categoria: "Técnicas de Vendas"
     },
     {
       id: "mat-02",
-      titulo: "Checklist de Documentação para Aprovação de Crédito Caixa",
-      descricao: "Folha de conferência rápida para solicitar ao cliente todos os documentos necessários sem retrabalho na análise.",
+      titulo: "Checklist de Documentação Crédito Caixa",
+      descricao: "Guia de conferência de documentos para agilizar aprovação no correspondente.",
       pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      categoria: "Crédito & Financiamento",
-      formato: "PDF",
-      paginas: "4 páginas",
-      tamanho: "850 KB",
-      destaque: false
+      categoria: "Financiamento"
+    },
+    {
+      id: "mat-03",
+      titulo: "Tabela de Benefícios e Diferenciais Direcional",
+      descricao: "Material comparativo com atributos construtivos e vantagens competitivas.",
+      pdfUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+      categoria: "Lançamentos"
     }
   ]
 };
 
-/**
- * Utilitário: Extrai o ID do vídeo do YouTube suportando todos os formatos
- * (incluindo links de vídeos Não Listados)
- * Exemplos:
- * - https://www.youtube.com/watch?v=VIDEO_ID
- * - https://youtu.be/VIDEO_ID
- * - https://www.youtube.com/embed/VIDEO_ID
- * - https://www.youtube.com/shorts/VIDEO_ID
- */
-function extractYouTubeId(url) {
+// ============================================================================
+// Utilitários de YouTube
+// ============================================================================
+function extractYoutubeId(url) {
   if (!url) return null;
-  
-  // Regex universal para URLs do YouTube
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|shorts\/|live\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-
+  const cleanUrl = url.trim();
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+  const match = cleanUrl.match(regExp);
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
-/**
- * Utilitário: Gera URL de thumbnail do YouTube
- */
-function getYouTubeThumbnail(videoId) {
-  if (!videoId) {
-    return 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=80';
-  }
-  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+function getYoutubeThumbnail(url) {
+  const id = extractYoutubeId(url);
+  return id 
+    ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` 
+    : 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=80';
 }
 
-/**
- * Inicialização e carregamento dos dados do JSON
- */
-async function initApp() {
+function getYoutubeEmbedUrl(url) {
+  const id = extractYoutubeId(url);
+  return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : '';
+}
+
+// ============================================================================
+// Inicialização e Carregamento de Dados
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  loadData();
+});
+
+async function loadData() {
   try {
-    // Adiciona timestamp para evitar cache no GitHub Pages ao editar o JSON
-    const response = await fetch(`./dados.json?t=${new Date().getTime()}`);
-    if (!response.ok) {
-      throw new Error(`Falha na resposta HTTP: ${response.status}`);
+    const res = await fetch('dados.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      appData = {
+        config: data.config || defaultData.config,
+        videos: Array.isArray(data.videos) && data.videos.length > 0 ? data.videos : defaultData.videos,
+        materiais: Array.isArray(data.materiais) && data.materiais.length > 0 ? data.materiais : defaultData.materiais
+      };
+    } else {
+      throw new Error('Falha no fetch');
     }
-    state.data = await response.json();
-  } catch (error) {
-    console.warn("Aviso: Carregando dados de fallback integrados. Detalhes:", error);
-    state.data = FALLBACK_DATA;
+  } catch (err) {
+    console.warn('Carregando dados locais de fallback:', err);
+    // Verificar se há dados salvos no localStorage
+    const savedVideos = localStorage.getItem('forja_custom_videos');
+    if (savedVideos) {
+      try {
+        appData.videos = JSON.parse(savedVideos);
+      } catch (e) {
+        appData.videos = defaultData.videos;
+      }
+    } else {
+      appData.videos = defaultData.videos;
+    }
+    appData.materiais = defaultData.materiais;
   }
 
-  // Configurações dinâmicas
-  setupHeaderAndFooter();
-  renderHeroStats();
-  renderDestaqueSemana();
-  renderVideoFilters();
-  renderVideosGrid();
-  renderMaterialFilters();
-  renderMaterialsGrid();
-  setupEventListeners();
-  setupScrollEffects();
-}
-
-/**
- * Configurações de cabeçalho, ano dinâmico no rodapé e links institucionais
- */
-function setupHeaderAndFooter() {
-  // Atualiza ano atual no rodapé
-  const currentYearEl = document.getElementById("current-year");
-  if (currentYearEl) {
-    currentYearEl.textContent = new Date().getFullYear().toString();
+  // Mesclar com possíveis vídeos extras adicionados pelo usuário no navegador
+  const localExtra = localStorage.getItem('forja_local_videos');
+  if (localExtra) {
+    try {
+      const extraList = JSON.parse(localExtra);
+      if (Array.isArray(extraList) && extraList.length > 0) {
+        extraList.forEach(item => {
+          if (!appData.videos.some(v => v.youtubeUrl === item.youtubeUrl)) {
+            appData.videos.push(item);
+          }
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
+
+  // Mesclar com possíveis PDFs extras adicionados pelo usuário no navegador
+  const localPdfExtra = localStorage.getItem('forja_local_pdfs');
+  if (localPdfExtra) {
+    try {
+      const extraPdfList = JSON.parse(localPdfExtra);
+      if (Array.isArray(extraPdfList) && extraPdfList.length > 0) {
+        extraPdfList.forEach(item => {
+          if (!appData.materiais.some(m => m.pdfUrl === item.pdfUrl && m.titulo === item.titulo)) {
+            appData.materiais.push(item);
+          }
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  renderVideosCarousel();
+  renderPdfGrid();
 }
 
-/**
- * Renderiza métricas rápidas no Hero
- */
-function renderHeroStats() {
-  const statsContainer = document.getElementById("hero-stats-container");
-  if (!statsContainer || !state.data) return;
+// ============================================================================
+// DOBRA 1: Renderização do Carrossel de Vídeos (Estilo Netflix / Apple)
+// ============================================================================
+function renderVideosCarousel() {
+  const track = document.getElementById('carousel-videos-track');
+  if (!track) return;
 
-  const totalVideos = (state.data.videos ? state.data.videos.length : 0) + (state.data.destaqueSemana ? 1 : 0);
-  const totalMateriais = state.data.materiais ? state.data.materiais.length : 0;
+  track.innerHTML = '';
 
-  statsContainer.innerHTML = `
-    <div class="stat-item">
-      <div class="stat-number">${totalVideos} <span class="stat-accent">+</span></div>
-      <div class="stat-label">Aulas em Vídeo</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">${totalMateriais} <span class="stat-accent">PDFs</span></div>
-      <div class="stat-label">Materiais Práticos</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">100<span class="stat-accent">%</span></div>
-      <div class="stat-label">Foco em Performance</div>
-    </div>
-  `;
-}
+  appData.videos.forEach((video) => {
+    const thumb = getYoutubeThumbnail(video.youtubeUrl);
+    const card = document.createElement('div');
+    card.className = 'carousel-card';
+    card.onclick = () => openVideoModal(video);
 
-/**
- * Renderiza a seção Destaque da Semana
- */
-function renderDestaqueSemana() {
-  const container = document.getElementById("destaque-container");
-  if (!container || !state.data || !state.data.destaqueSemana) return;
-
-  const d = state.data.destaqueSemana;
-  const youtubeId = extractYouTubeId(d.youtubeUrl);
-  const thumbnail = getYouTubeThumbnail(youtubeId);
-
-  const topicsHtml = d.topicos && d.topicos.length > 0
-    ? `<ul class="destaque-topics">
-        ${d.topicos.map(topic => `
-          <li class="destaque-topic-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>${topic}</span>
-          </li>
-        `).join('')}
-       </ul>`
-    : '';
-
-  container.innerHTML = `
-    <div class="destaque-card" id="card-destaque">
-      <div class="destaque-media" onclick="openVideoModal('${d.titulo.replace(/'/g, "\\'")}', '${d.youtubeUrl}', '${d.categoria}', '${(d.descricao || '').replace(/'/g, "\\'")}')" role="button" aria-label="Assistir treinamento em destaque">
-        <img src="${thumbnail}" alt="${d.titulo}" class="destaque-thumbnail" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=80'" />
-        <div class="destaque-overlay">
-          <div class="play-btn-large">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+    card.innerHTML = `
+      <div class="card-media">
+        <img 
+          src="${thumb}" 
+          alt="${escapeHtml(video.titulo)}" 
+          class="card-thumb" 
+          loading="lazy" 
+          onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=80'"
+        />
+        <div class="card-overlay">
+          <div class="play-badge" aria-label="Assistir Vídeo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6 3 20 12 6 21 6 3"></polygon>
             </svg>
           </div>
         </div>
-        <div class="destaque-media-badge">
-          <span class="badge-duration">${d.duracao || 'Vídeo Aula'}</span>
+      </div>
+      <div class="card-content">
+        <span class="card-cat">${escapeHtml(video.categoria || 'Treinamento')}</span>
+        <h3 class="card-title">${escapeHtml(video.titulo)}</h3>
+        <p class="card-desc">${escapeHtml(video.descricao || '')}</p>
+        <div class="card-action">
+          <span>Assistir Agora</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </div>
       </div>
-      <div class="destaque-info">
-        <div>
-          <div class="destaque-meta">
-            <span class="badge-tag">${d.badge || 'Destaque'}</span>
-            <span class="badge-category">${d.categoria || 'Geral'}</span>
-          </div>
-          <h3 class="destaque-title">${d.titulo}</h3>
-          <p class="destaque-desc">${d.descricao}</p>
-          ${topicsHtml}
-        </div>
-        <div class="destaque-footer-actions">
-          <button class="btn-primary" onclick="openVideoModal('${d.titulo.replace(/'/g, "\\'")}', '${d.youtubeUrl}', '${d.categoria}', '${(d.descricao || '').replace(/'/g, "\\'")}')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            Assistir Masterclass
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
-}
+    `;
 
-/**
- * Renderiza os botões de filtro de categorias para Vídeos
- */
-function renderVideoFilters() {
-  const container = document.getElementById("video-filters");
-  if (!container || !state.data || !state.data.categorias) return;
-
-  container.innerHTML = state.data.categorias.map(cat => `
-    <button 
-      class="pill-btn ${state.activeVideoCategory === cat ? 'active' : ''}" 
-      onclick="filterVideosByCategory('${cat}')"
-      type="button"
-    >
-      ${cat}
-    </button>
-  `).join('');
-}
-
-/**
- * Filtra vídeos por categoria
- */
-function filterVideosByCategory(category) {
-  state.activeVideoCategory = category;
-  renderVideoFilters();
-  renderVideosGrid();
-}
-
-/**
- * Renderiza o Grid de Vídeos de acordo com a categoria e busca ativa
- */
-function renderVideosGrid() {
-  const container = document.getElementById("videos-grid");
-  if (!container || !state.data || !state.data.videos) return;
-
-  const term = state.videoSearchTerm.toLowerCase().trim();
-  
-  const filteredVideos = state.data.videos.filter(video => {
-    const matchesCategory = state.activeVideoCategory === "Todos" || video.categoria === state.activeVideoCategory;
-    const matchesSearch = !term || 
-      video.titulo.toLowerCase().includes(term) || 
-      video.descricao.toLowerCase().includes(term) ||
-      (video.categoria && video.categoria.toLowerCase().includes(term));
-    return matchesCategory && matchesSearch;
+    track.appendChild(card);
   });
 
-  if (filteredVideos.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <h4 class="empty-state-title">Nenhum treinamento encontrado</h4>
-        <p class="empty-state-desc">Tente buscar por outros termos ou selecione a categoria "Todos".</p>
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = filteredVideos.map(video => {
-    const youtubeId = extractYouTubeId(video.youtubeUrl);
-    const thumbnail = getYouTubeThumbnail(youtubeId);
-
-    return `
-      <article class="video-card" onclick="openVideoModal('${video.titulo.replace(/'/g, "\\'")}', '${video.youtubeUrl}', '${video.categoria || 'Treinamento'}', '${(video.descricao || '').replace(/'/g, "\\'")}')">
-        <div class="video-card-thumbnail">
-          <img src="${thumbnail}" alt="${video.titulo}" class="video-card-img" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=80'" />
-          <div class="video-card-overlay">
-            <div class="video-card-play">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-            </div>
-          </div>
-          <span class="video-card-duration">${video.duracao || 'Vídeo'}</span>
-        </div>
-        <div class="video-card-content">
-          <span class="video-card-category">${video.categoria || 'Geral'}</span>
-          <h4 class="video-card-title">${video.titulo}</h4>
-          <p class="video-card-desc">${video.descricao}</p>
-          <div class="video-card-footer">
-            <span>${video.nivel || 'Treinamento Oficial'}</span>
-            <span class="video-card-action">
-              Assistir 
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </span>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join('');
+  // Card para Adicionar Vídeo no final do Carrossel
+  const addCard = document.createElement('div');
+  addCard.className = 'carousel-card carousel-card-add';
+  addCard.onclick = () => openAddVideoModal();
+  addCard.innerHTML = `
+    <div class="add-icon-circle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </div>
+    <h3 class="add-card-title">Incluir Novo Vídeo</h3>
+    <p class="add-card-desc">Cole o link do YouTube para aparecer na página</p>
+  `;
+  track.appendChild(addCard);
 }
 
-/**
- * Renderiza os filtros de materiais PDF
- */
-function renderMaterialFilters() {
-  const container = document.getElementById("material-filters");
-  if (!container || !state.data || !state.data.categorias) return;
-
-  container.innerHTML = state.data.categorias.map(cat => `
-    <button 
-      class="pill-btn ${state.activeMaterialCategory === cat ? 'active' : ''}" 
-      onclick="filterMaterialsByCategory('${cat}')"
-      type="button"
-    >
-      ${cat}
-    </button>
-  `).join('');
+// Navegação do Carrossel por botões
+function scrollCarousel(direction) {
+  const track = document.getElementById('carousel-videos-track');
+  if (!track) return;
+  const scrollAmount = 380 * direction;
+  track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 }
 
-/**
- * Filtra materiais por categoria
- */
-function filterMaterialsByCategory(category) {
-  state.activeMaterialCategory = category;
-  renderMaterialFilters();
-  renderMaterialsGrid();
-}
+// ============================================================================
+// DOBRA 2: Renderização da Biblioteca de PDFs
+// ============================================================================
+function renderPdfGrid() {
+  const grid = document.getElementById('pdf-grid');
+  if (!grid) return;
 
-/**
- * Renderiza o Grid da Biblioteca de Materiais
- */
-function renderMaterialsGrid() {
-  const container = document.getElementById("materials-grid");
-  if (!container || !state.data || !state.data.materiais) return;
+  grid.innerHTML = '';
 
-  const term = state.materialSearchTerm.toLowerCase().trim();
+  appData.materiais.forEach((mat) => {
+    const card = document.createElement('div');
+    card.className = 'pdf-card';
 
-  const filteredMaterials = state.data.materiais.filter(mat => {
-    const matchesCategory = state.activeMaterialCategory === "Todos" || mat.categoria === state.activeMaterialCategory;
-    const matchesSearch = !term ||
-      mat.titulo.toLowerCase().includes(term) ||
-      mat.descricao.toLowerCase().includes(term) ||
-      (mat.categoria && mat.categoria.toLowerCase().includes(term));
-    return matchesCategory && matchesSearch;
-  });
-
-  if (filteredMaterials.length === 0) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
-        </svg>
-        <h4 class="empty-state-title">Nenhum material encontrado</h4>
-        <p class="empty-state-desc">Tente outra busca ou selecione outra categoria.</p>
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = filteredMaterials.map(mat => `
-    <div class="material-card ${mat.destaque ? 'featured-material' : ''}">
+    card.innerHTML = `
       <div>
-        <div class="material-card-top">
-          <div class="material-icon-box" aria-hidden="true">
+        <div class="pdf-card-top">
+          <div class="pdf-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="12" y1="18" x2="12" y2="12"></line>
-              <line x1="9" y1="15" x2="15" y2="15"></line>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
           </div>
-          <div class="material-title-area">
-            <span class="material-category">${mat.categoria || 'PDF'}</span>
-            <h4 class="material-title">${mat.titulo}</h4>
+          <div>
+            <span class="pdf-cat">${escapeHtml(mat.categoria || 'Material')}</span>
+            <h3 class="pdf-title">${escapeHtml(mat.titulo)}</h3>
           </div>
         </div>
-        <p class="material-desc">${mat.descricao}</p>
+        <p class="pdf-desc">${escapeHtml(mat.descricao || '')}</p>
       </div>
-      <div>
-        <div class="material-meta-row">
-          <span class="material-meta-item">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
-            ${mat.formato || 'PDF'}
-          </span>
-          <span class="material-meta-item">${mat.paginas || 'Completo'}</span>
-          <span class="material-meta-item">${mat.tamanho || 'Download'}</span>
-        </div>
-        <a href="${mat.pdfUrl}" target="_blank" rel="noopener noreferrer" class="btn-open-material" id="btn-mat-${mat.id}">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            <polyline points="15 3 21 3 21 9"></polyline>
-            <line x1="10" y1="14" x2="21" y2="3"></line>
-          </svg>
-          Abrir Material
-        </a>
-      </div>
+
+      <a href="${mat.pdfUrl}" target="_blank" rel="noopener noreferrer" class="btn-open-pdf">
+        <span>Abrir Documento PDF</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  // Card para Adicionar PDF no final da lista
+  const addCard = document.createElement('div');
+  addCard.className = 'pdf-card pdf-card-add';
+  addCard.onclick = () => openAddPdfModal();
+  addCard.innerHTML = `
+    <div class="add-icon-circle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
     </div>
-  `).join('');
+    <h3 class="add-card-title">Incluir Novo PDF</h3>
+    <p class="add-card-desc">Cole o link do seu documento para aparecer na biblioteca</p>
+  `;
+  grid.appendChild(addCard);
 }
 
-/**
- * Modal Player de Vídeo do YouTube
- */
-function openVideoModal(titulo, youtubeUrl, categoria, descricao) {
-  const modalBackdrop = document.getElementById("video-modal");
-  const modalTitle = document.getElementById("modal-video-title");
-  const modalCat = document.getElementById("modal-video-category");
-  const modalDesc = document.getElementById("modal-video-desc");
-  const modalFrame = document.getElementById("modal-video-iframe");
+// ============================================================================
+// Modal do Player de Vídeo
+// ============================================================================
+function openVideoModal(video) {
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('modal-video-iframe');
+  const title = document.getElementById('modal-video-title');
+  const cat = document.getElementById('modal-video-category');
+  const desc = document.getElementById('modal-video-desc');
 
-  if (!modalBackdrop || !modalFrame) return;
+  if (!modal || !iframe) return;
 
-  const youtubeId = extractYouTubeId(youtubeUrl);
-  if (!youtubeId) {
-    alert("URL do YouTube inválida.");
-    return;
-  }
+  const embedUrl = getYoutubeEmbedUrl(video.youtubeUrl);
+  iframe.src = embedUrl;
+  if (title) title.textContent = video.titulo;
+  if (cat) cat.textContent = video.categoria || 'FORJA DV';
+  if (desc) desc.textContent = video.descricao || '';
 
-  modalTitle.textContent = titulo || "Treinamento em Vídeo";
-  modalCat.textContent = categoria || "FORJA DV";
-  modalDesc.textContent = descricao || "";
-  
-  // Embed com parâmetros otimizados para reprodução limpa
-  modalFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
-
-  modalBackdrop.classList.add("open");
-  document.body.style.overflow = "hidden"; // Trava scroll da página
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeVideoModal() {
-  const modalBackdrop = document.getElementById("video-modal");
-  const modalFrame = document.getElementById("modal-video-iframe");
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('modal-video-iframe');
 
-  if (!modalBackdrop || !modalFrame) return;
-
-  modalFrame.src = ""; // Interrompe áudio/vídeo imediatamente
-  modalBackdrop.classList.remove("open");
-  document.body.style.overflow = ""; // Restaura scroll
+  if (iframe) iframe.src = '';
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-/**
- * Registra ouvintes de eventos para busca e modal
- */
-function setupEventListeners() {
-  // Busca de vídeos
-  const videoSearchInput = document.getElementById("video-search-input");
-  if (videoSearchInput) {
-    videoSearchInput.addEventListener("input", (e) => {
-      state.videoSearchTerm = e.target.value;
-      renderVideosGrid();
-    });
+// ============================================================================
+// Modal de Inclusão de Vídeos (Painel para o usuário colar links)
+// ============================================================================
+function openAddVideoModal() {
+  const modal = document.getElementById('add-video-modal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const input = document.getElementById('new-video-url');
+    if (input) setTimeout(() => input.focus(), 150);
+  }
+}
+
+function closeAddVideoModal() {
+  const modal = document.getElementById('add-video-modal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function handleAddNewVideo(e) {
+  e.preventDefault();
+  const urlInput = document.getElementById('new-video-url');
+  const titleInput = document.getElementById('new-video-title');
+  const descInput = document.getElementById('new-video-desc');
+
+  const url = urlInput ? urlInput.value.trim() : '';
+  const title = titleInput ? titleInput.value.trim() : '';
+  const desc = descInput ? descInput.value.trim() : '';
+
+  if (!url || !title) {
+    alert('Por favor, preencha o link do YouTube e o título.');
+    return;
   }
 
-  // Busca de materiais
-  const materialSearchInput = document.getElementById("material-search-input");
-  if (materialSearchInput) {
-    materialSearchInput.addEventListener("input", (e) => {
-      state.materialSearchTerm = e.target.value;
-      renderMaterialsGrid();
-    });
+  const id = extractYoutubeId(url);
+  if (!id) {
+    alert('Link do YouTube inválido. Certifique-se de que é um link válido do YouTube.');
+    return;
   }
 
-  // Fechamento do modal ao pressionar tecla ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeVideoModal();
-    }
+  const newVideo = {
+    id: 'vid-' + Date.now(),
+    titulo: title,
+    descricao: desc,
+    youtubeUrl: url,
+    categoria: 'Treinamento DV'
+  };
+
+  appData.videos.push(newVideo);
+
+  // Salvar no localStorage para persistir na sessão do navegador
+  try {
+    let localVideos = [];
+    const saved = localStorage.getItem('forja_local_videos');
+    if (saved) localVideos = JSON.parse(saved);
+    localVideos.push(newVideo);
+    localStorage.setItem('forja_local_videos', JSON.stringify(localVideos));
+  } catch (err) {
+    console.error(err);
+  }
+
+  renderVideosCarousel();
+  closeAddVideoModal();
+
+  // Limpar campos
+  if (urlInput) urlInput.value = '';
+  if (titleInput) titleInput.value = '';
+  if (descInput) descInput.value = '';
+
+  // Rolar até o final do carrossel
+  setTimeout(() => {
+    const track = document.getElementById('carousel-videos-track');
+    if (track) track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+  }, 200);
+}
+
+function exportJsonConfig() {
+  const jsonContent = JSON.stringify(appData, null, 2);
+  navigator.clipboard.writeText(jsonContent).then(() => {
+    alert('Código JSON copiado para sua área de transferência! Você pode colá-lo no arquivo dados.json para atualizar permanentemente no GitHub.');
+  }).catch(() => {
+    prompt('Copie o código JSON abaixo para colar no seu dados.json:', jsonContent);
   });
+}
 
-  // Fechamento ao clicar fora da caixa do modal
-  const modalBackdrop = document.getElementById("video-modal");
-  if (modalBackdrop) {
-    modalBackdrop.addEventListener("click", (e) => {
-      if (e.target === modalBackdrop) {
-        closeVideoModal();
-      }
-    });
+// ============================================================================
+// Modal de Inclusão de PDFs (Painel para o usuário colar links de PDF)
+// ============================================================================
+function openAddPdfModal() {
+  const modal = document.getElementById('add-pdf-modal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const input = document.getElementById('new-pdf-url');
+    if (input) setTimeout(() => input.focus(), 150);
   }
 }
 
-/**
- * Efeitos de scroll suave e sombra do cabeçalho
- */
-function setupScrollEffects() {
-  const header = document.querySelector(".header");
-  if (!header) return;
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 20) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
+function closeAddPdfModal() {
+  const modal = document.getElementById('add-pdf-modal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 }
 
-// Inicializa a aplicação ao carregar o DOM
-document.addEventListener("DOMContentLoaded", initApp);
+function handleAddNewPdf(e) {
+  e.preventDefault();
+  const urlInput = document.getElementById('new-pdf-url');
+  const titleInput = document.getElementById('new-pdf-title');
+  const catInput = document.getElementById('new-pdf-cat');
+  const descInput = document.getElementById('new-pdf-desc');
+
+  const url = urlInput ? urlInput.value.trim() : '';
+  const title = titleInput ? titleInput.value.trim() : '';
+  const cat = catInput && catInput.value.trim() ? catInput.value.trim() : 'Material de Apoio';
+  const desc = descInput ? descInput.value.trim() : '';
+
+  if (!url || !title) {
+    alert('Por favor, preencha o link do PDF e o título.');
+    return;
+  }
+
+  const newPdf = {
+    id: 'mat-' + Date.now(),
+    titulo: title,
+    descricao: desc,
+    pdfUrl: url,
+    categoria: cat
+  };
+
+  appData.materiais.push(newPdf);
+
+  // Salvar no localStorage para persistir na sessão do navegador
+  try {
+    let localPdfs = [];
+    const saved = localStorage.getItem('forja_local_pdfs');
+    if (saved) localPdfs = JSON.parse(saved);
+    localPdfs.push(newPdf);
+    localStorage.setItem('forja_local_pdfs', JSON.stringify(localPdfs));
+  } catch (err) {
+    console.error(err);
+  }
+
+  renderPdfGrid();
+  closeAddPdfModal();
+
+  // Limpar campos
+  if (urlInput) urlInput.value = '';
+  if (titleInput) titleInput.value = '';
+  if (catInput) catInput.value = '';
+  if (descInput) descInput.value = '';
+
+  // Rolar até a seção de PDFs
+  setTimeout(() => {
+    const pdfSection = document.getElementById('pdf-section');
+    if (pdfSection) pdfSection.scrollIntoView({ behavior: 'smooth' });
+  }, 200);
+}
+
+// Fechamento de modais com clique fora ou tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeVideoModal();
+    closeAddVideoModal();
+    closeAddPdfModal();
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const videoModal = document.getElementById('video-modal');
+  const addModal = document.getElementById('add-video-modal');
+  const addPdfModal = document.getElementById('add-pdf-modal');
+
+  if (videoModal && e.target === videoModal) closeVideoModal();
+  if (addModal && e.target === addModal) closeAddVideoModal();
+  if (addPdfModal && e.target === addPdfModal) closeAddPdfModal();
+});
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
