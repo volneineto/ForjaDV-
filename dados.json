@@ -13,37 +13,14 @@
     "id": "destaque-01",
     "badge": "Destaque da Semana",
     "categoria": "Técnicas de Fechamento",
-    "titulo": "Masterclass: Como Converter Leads Frios em Vendas em Menos de 7 Dias",
-    "subtitulo": "Estratégias comprovadas para contornar objeções de entrada e acelerar aprovação de crédito.",
-    "descricao": "Aprenda o passo a passo prático utilizado pelos top 1% corretores da Direcional para qualificar clientes no primeiro contato, criar senso de urgência legítimo e conduzir a negociação até a assinatura da proposta.",
-    "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "duracao": "28 min",
-    "instrutor": "Coordenação de Performance DV",
-    "topicos": [
-      "Qualificação em 3 perguntas-chave no WhatsApp",
-      "Como apresentar o fluxo de pagamento sem assustar o cliente",
-      "Gatilhos mentais de escassez e tabela de lançamento",
-      "Fechamento assistido com simulação Caixa na hora"
-    ],
-    "materialComplementar": "Guia de Contorno de Objeções (PDF)"
-  },
-  "categorias": [
-    "Todos",
-    "Técnicas de Vendas",
-    "Crédito & Financiamento",
-    "Lançamentos Direcional",
-    "Atendimento & CRM",
-    "Mindset & Alta Performance"
-  ],
+    "titulo": "Resumo do best seller Prospecção Fanática",
+    "youtubeUrl": "https://youtu.be/-GFRTaa2t3M?si=9eVnZP6T-R5JMQ8-",
   "videos": [
     {
       "id": "vid-01",
-      "titulo": "Scripts de Alta Conversão para Abordagem no WhatsApp",
+      "titulo": "Simulador Pro Soluto Direcional",
       "descricao": "Modelos prontos de mensagens para reativar leads antigos e responder novos contatos com taxa de resposta superior a 70%.",
-      "youtubeUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4",
-      "duracao": "14 min",
-      "categoria": "Técnicas de Vendas",
-      "nivel": "Iniciante / Intermediário",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Rr_jJeXCKsQ",
       "data": "Atualizado"
     },
     {
